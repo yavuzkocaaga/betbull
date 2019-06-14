@@ -1,0 +1,53 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /betbull
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/betbull_db?currentSchema=betbull
+    username: ykocaaga
+    password: 254K26!19
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        use_sql_comments: false
+        format_sql: true
+        type: trace
+        temp:
+          use_jdbc_metadata_defaults: false
+      javax:
+        persistence:
+          schema-generation:
+            create-source: metadata
+            scripts:
+              action: create
+              create-target: src\main\resources\create.sql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+logging:
+  level:
+    com:
+      betbull:
+        social:
+          football: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: INFO # to show sql binded values
+  file:
+    max-size: 100MB
+    max-history: 60
+
+swagger:
+  app-info:
+    name: SOCIAL FOOTBALLER REST API
+    description: SOCIAL FOOTBALLER project.
+    version: V1
+    termofserviceurl: /
+    license: sosyalyazilim
+    licenseUrl: /
+    contact:
+      name: sosyalyazilim
+      url: http://www.sosyalyazilim.com/
+      email: info@sosyalyazilim.com
